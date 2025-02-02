@@ -3,19 +3,19 @@ import random
 def check_attendance():
     return random.randint(0, 1)
 
-def emp_daily_wage():
+def emp_monthly_wage():
     wage_per_hour = 20
-    emp_check = check_attendance()
+    working_days_in_month = 20
+    total_wage = 0
     
-    match emp_check:
-        case 1:
-            daily_wage = wage_per_hour * 8
-            print(f"The employee is present, so the daily wage is: {daily_wage}")
-        case _:
-            daily_wage = 0
-            print(f"The employee is absent, so the daily wage is: {daily_wage}")
+    for i in range(working_days_in_month):
+        emp_check = check_attendance()
+        if emp_check == 1:
+            total_wage += wage_per_hour * 8
+        else:
+            total_wage += 0
+    
+    print(f"The total monthly wage for the employee is: {total_wage}")
 
-emp_daily_wage()
-
-
+emp_monthly_wage()
 
